@@ -29,7 +29,7 @@ class golang(
     require => Package['system-golang'],
   }
 
-  package { 'golang':
+  package { 'new-golang':
     ensure  => $version,
     name    => $package_name,
     require => Apt::Ppa['ppa:gophers/go'],

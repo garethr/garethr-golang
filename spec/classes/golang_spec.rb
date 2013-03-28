@@ -32,4 +32,14 @@ describe 'golang', :type => :class do
     end
   end
 
+  context 'with an invalid distro name' do
+    let(:facts) { {:osfamily => 'RedHat', :lsbdistcodename => 'centos'} }
+    it do
+      expect {
+        should contain_package('new-golang')
+      }.to raise_error(Puppet::Error, /This module uses PPA repos/)
+    end
+  end
+
+
 end

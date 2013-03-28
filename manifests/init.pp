@@ -1,7 +1,8 @@
 # == Class: golang
 #
 # Module to install an up-to-date version of Go from the
-# official PPA
+# official PPA. The use of the PPA means this only works
+# on Ubuntu.
 #
 # === Parameters
 # [*version*]
@@ -19,6 +20,7 @@ class golang(
   include apt
   validate_re($package_name, '^golang-(stable|weekly|tip)$')
   validate_string($version)
+  validate_re($::osfamily, '^Debian$', 'This module uses PPA repos and only works with Debian based distros')
 
   package { 'system-golang':
     ensure => 'absent',

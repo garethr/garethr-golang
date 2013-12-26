@@ -1,5 +1,5 @@
 name        'garethr-golang'
-version     '0.0.4'
+version '0.0.6'
 source      'git://github.com/garethr/garethr-golang.git'
 author      'Gareth Rushgrove'
 summary     'Module for installing go from official ppa'

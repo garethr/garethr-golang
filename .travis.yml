@@ -1,21 +1,15 @@
 ---
 language: ruby
+bundler_args: --without development
+before_install: rm Gemfile.lock || true
 rvm:
-- 1.9.2
-- 1.9.3
-- 1.8.7
+  - 1.8.7
+  - 1.9.3
 script: bundle exec rake spec
-after_success:
-- git clone -q git://github.com/puppetlabs/ghpublisher.git .forge-releng
-- .forge-releng/publish
 env:
-  global:
-  - PUBLISHER_LOGIN=garethr
-  - secure: ! 'YgwgKIHKoqTWpyO92xRU5DHUWQMBVr0R/QJZcYaV6LZAwU63kaeareoU2WZ6
-      spjsa1SlxrTl2v8/0K3qG86rZeqykO77tMcmKJ+0qbdQsO+uWHOZGZZsfhPe
-      fbbEhJdOH1Z5Mn09i8MO3HMIow198KX6nL1Gv6vwohMBnoo0X4o='
   matrix:
-  - PUPPET_VERSION=2.7.17
-  - PUPPET_VERSION=2.7.18
-  - PUPPET_VERSION=3.0.1
-  - PUPPET_VERSION=3.1.0
+  - PUPPET_VERSION="~> 2.7.0"
+  - PUPPET_VERSION="~> 3.1.0"
+  - PUPPET_VERSION="~> 3.2.0"
+  - PUPPET_VERSION="~> 3.3.0"
+  - PUPPET_VERSION="~> 3.4.0"

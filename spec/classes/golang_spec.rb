@@ -4,6 +4,7 @@ describe 'golang', :type => :class do
   let(:facts) { {:osfamily => 'Debian', :lsbdistcodename => 'precise'} }
 
   context 'with no parameters' do
+    it { should compile.with_all_deps }
     it { should include_class('apt') }
     it { should contain_package('new-golang').with_name('golang-stable').with_ensure('present') }
     it { should contain_package('system-golang').with_name('golang').with_ensure('absent') }

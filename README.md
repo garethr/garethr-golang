@@ -1,5 +1,6 @@
-Puppet module for installing the Go from the official PPA noted
-on in the [Golang docs](https://code.google.com/p/go-wiki/wiki/Ubuntu).
+Puppet module for installing the Go from the JuJu packages on
+[Launchpad](https://launchpad.net/~juju/+archive/golang).
+
 This module is also available on the [Puppet
 Forge](https://forge.puppetlabs.com/garethr/golang)
 
@@ -12,5 +13,4 @@ The module includes a single class:
 
     include 'golang'
 
-By default this sets up the PPA and installs the golang-stable package.
-See the code for ways to get golang-weekly or golang-tip.
+By default this sets up the PPA and installs the golang package.

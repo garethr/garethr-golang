@@ -1,8 +1,8 @@
 name        'garethr-golang'
-version '0.0.6'
+version     '0.1.0'
 source      'git://github.com/garethr/garethr-golang.git'
 author      'Gareth Rushgrove'
-summary     'Module for installing go from official ppa'
+summary     'Module for installing go from the JuJu PPA'
 description 'Install one of the official golang packages'
 license     'Apache License, Version 2.0'
 

@@ -1,7 +1,12 @@
 require 'spec_helper'
 
 describe 'golang', :type => :class do
-  let(:facts) { {:osfamily => 'Debian', :lsbdistcodename => 'precise'} }
+  let(:facts) { {
+    :osfamily => 'Debian',
+    :operatingsystem => 'Ubuntu',
+    :lsbdistcodename => 'precise',
+    :lsbdistid => 'ubuntu'
+  } }
 
   context 'with no parameters' do
     it { should contain_class('apt') }
@@ -15,11 +20,14 @@ describe 'golang', :type => :class do
   end
 
   context 'with an invalid distro name' do
-    let(:facts) { {:osfamily => 'RedHat'} }
+    let(:facts) { {
+      :osfamily => 'RedHat',
+      :lsbdistid => 'redhat'
+    } }
     it do
       expect {
         should contain_package('new-golang')
-      }.to raise_error(Puppet::Error, /This module uses PPA repos/)
+      }.to raise_error(Puppet::Error, /Unsupported osfamily/)
     end
   end
 

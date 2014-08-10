@@ -27,7 +27,7 @@ describe 'golang', :type => :class do
     it do
       expect {
         should contain_package('new-golang')
-      }.to raise_error(Puppet::Error, /Unsupported osfamily/)
+      }.to raise_error(Puppet::Error, /This module only works on Debian or derivatives/)
     end
   end
 
